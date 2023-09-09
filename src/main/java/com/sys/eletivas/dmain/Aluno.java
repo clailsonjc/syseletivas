@@ -3,15 +3,26 @@ package com.sys.eletivas.dmain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
 public class Aluno implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idAluno;
+	
 	private Long matrícula;
+	
 	private String nome;
+	
 	private Integer sexo;
+	
 	private String senha;
 	
 	public Aluno(Long idAluno, Long matrícula, String nome, Integer sexo, String senha) {
