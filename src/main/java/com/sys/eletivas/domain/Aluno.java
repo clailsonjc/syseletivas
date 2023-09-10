@@ -1,12 +1,17 @@
-package com.sys.eletivas.dmain;
+package com.sys.eletivas.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Aluno implements Serializable{
@@ -15,17 +20,26 @@ public class Aluno implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idAluno;
+	private Integer idAluno;
 	
-	private Long matrícula;
-	
-	private String nome;
-	
-	private Integer sexo;
-	
+		
+	private Integer matrícula;	
+	private String nome;	
+	private Integer sexo;	
 	private String senha;
 	
-	public Aluno(Long idAluno, Long matrícula, String nome, Integer sexo, String senha) {
+	@JsonManagedReference
+	@ManyToMany(mappedBy = "alunos")
+	private List<Turma> turmas = new ArrayList<>();
+	
+	
+	
+	
+	public Aluno() {
+		
+	}
+		
+	public Aluno(Integer idAluno, Integer matrícula, String nome, Integer sexo, String senha) {
 		super();
 		this.idAluno = idAluno;
 		this.matrícula = matrícula;
@@ -34,17 +48,16 @@ public class Aluno implements Serializable{
 		this.senha = senha;
 	}
 	
-		
-	public Long getIdAluno() {
+	public Integer getIdAluno() {
 		return idAluno;
 	}
-	public void setIdAluno(Long idAluno) {
+	public void setIdAluno(Integer idAluno) {
 		this.idAluno = idAluno;
 	}
-	public Long getMatrícula() {
+	public Integer getMatrícula() {
 		return matrícula;
 	}
-	public void setMatrícula(Long matrícula) {
+	public void setMatrícula(Integer matrícula) {
 		this.matrícula = matrícula;
 	}
 	public String getNome() {
@@ -65,13 +78,25 @@ public class Aluno implements Serializable{
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	
+	public List<Turma> getTurmas() {
+		return turmas;
+	}
+
+	public void setTurmas(List<Turma> turmas) {
+		this.turmas = turmas;
+	}
+	
+	
+	
+	
 
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(idAluno);
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -84,6 +109,8 @@ public class Aluno implements Serializable{
 		Aluno other = (Aluno) obj;
 		return Objects.equals(idAluno, other.idAluno);
 	}
+
+	
 	
 		
 
