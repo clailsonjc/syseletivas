@@ -7,34 +7,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sys.eletivas.domain.Aluno;
-import com.sys.eletivas.services.AlunoService;
+import com.sys.eletivas.domain.Local;
+import com.sys.eletivas.services.LocalService;
 
 @RestController
-@RequestMapping(value = "/alunos")
-public class AlunoController {
+@RequestMapping(value = "/locais")
+public class LocalController {
 	
 	@Autowired
-	AlunoService service;
+	LocalService service;
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
-			
-		Aluno obj = service.buscar(id);		
+				
+		Local obj = service.buscar(id);			
 		return ResponseEntity.ok(obj) ;
+				
 		
 	}
 	
-	
-	
-	
 	@RequestMapping
 	public String inicio() {
-		return "ok";
+		return "Loal controller ok";
 	}
 
 
-	
+
 	
 	
 	

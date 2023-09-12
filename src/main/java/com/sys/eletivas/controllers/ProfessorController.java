@@ -7,21 +7,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sys.eletivas.domain.Aluno;
-import com.sys.eletivas.services.AlunoService;
+import com.sys.eletivas.domain.Professor;
+import com.sys.eletivas.services.ProfessorService;
 
 @RestController
-@RequestMapping(value = "/alunos")
-public class AlunoController {
+@RequestMapping(value = "/professores")
+public class ProfessorController {
 	
 	@Autowired
-	AlunoService service;
+	ProfessorService service;
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
-			
-		Aluno obj = service.buscar(id);		
+		
+		
+		Professor obj = service.buscar(id);		
 		return ResponseEntity.ok(obj) ;
+			
+		
 		
 	}
 	
@@ -30,7 +33,7 @@ public class AlunoController {
 	
 	@RequestMapping
 	public String inicio() {
-		return "ok";
+		return "professor controller ok";
 	}
 
 
