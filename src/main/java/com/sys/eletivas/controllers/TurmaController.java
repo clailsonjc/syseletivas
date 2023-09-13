@@ -21,10 +21,7 @@ public class TurmaController {
 	@Autowired
 	TurmaService service;
 	
-	@RequestMapping
-	public String inicio() {
-		return "ok";
-	}
+	
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {

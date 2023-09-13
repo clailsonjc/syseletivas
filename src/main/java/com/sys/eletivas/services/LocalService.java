@@ -21,5 +21,18 @@ public class LocalService {
 		return obj.orElseThrow(() -> new MyObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Local.class.getName()));
 	}
+	
+	
+	public Local insert(Local obj) {		
+		obj.setId(null);
+		return repo.save(obj);
+		
+	}
+	
+	
+	
+	
+	
+	
 
 }//

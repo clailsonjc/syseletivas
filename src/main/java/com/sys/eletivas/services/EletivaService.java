@@ -21,5 +21,19 @@ public class EletivaService {
 		return obj.orElseThrow(() -> new MyObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Eletiva.class.getName()));
 	}
+	
+	
+	//salvar
+		public Eletiva insert(Eletiva obj) {
+			obj.setId(null);
+			return repo.save(obj);
+		}
+	
+	
+	
+	
+	
+	
+	
 
 }//

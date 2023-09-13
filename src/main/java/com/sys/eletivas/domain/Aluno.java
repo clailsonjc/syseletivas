@@ -18,7 +18,7 @@ public class Aluno implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idAluno;
+	private Integer id;
 	
 		
 	private Integer matrícula;	
@@ -39,18 +39,18 @@ public class Aluno implements Serializable{
 		
 	public Aluno(Integer idAluno, Integer matrícula, String nome, Integer sexo, String senha) {
 		super();
-		this.idAluno = idAluno;
+		this.id = idAluno;
 		this.matrícula = matrícula;
 		this.nome = nome;
 		this.sexo = sexo;
 		this.senha = senha;
 	}
 	
-	public Integer getIdAluno() {
-		return idAluno;
+	public Integer getId() {
+		return id;
 	}
-	public void setIdAluno(Integer idAluno) {
-		this.idAluno = idAluno;
+	public void setId(Integer idAluno) {
+		this.id = idAluno;
 	}
 	public Integer getMatrícula() {
 		return matrícula;
@@ -93,7 +93,7 @@ public class Aluno implements Serializable{
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(idAluno);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -105,7 +105,7 @@ public class Aluno implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Aluno other = (Aluno) obj;
-		return Objects.equals(idAluno, other.idAluno);
+		return Objects.equals(id, other.id);
 	}
 
 	

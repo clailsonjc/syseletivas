@@ -21,5 +21,14 @@ public class ProfessorService {
 		return obj.orElseThrow(() -> new MyObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Professor.class.getName()));
 	}
+	
+	public Professor insert(Professor obj) {		
+		obj.setId(null);
+		return repo.save(obj);		
+		
+	}
+	
+	
+	
 
 }//

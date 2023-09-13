@@ -21,5 +21,16 @@ public class AlunoService {
 		return obj.orElseThrow(() -> new MyObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Aluno.class.getName()));
 	}
+	
+	
+	public Aluno insert(Aluno obj) {		
+		obj.setId(null);
+		return repo.save(obj);		
+	}
+	
+	
+	
+	
+	
 
 }//

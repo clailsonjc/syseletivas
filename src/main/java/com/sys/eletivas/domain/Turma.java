@@ -22,7 +22,7 @@ public class Turma implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idTurma;
+	private Integer id;
 	
 	private String descricao;
 	
@@ -45,16 +45,16 @@ public class Turma implements Serializable{
 
 	public Turma(Integer idTurma, String descricao) {
 		super();
-		this.idTurma = idTurma;
+		this.id = idTurma;
 		this.descricao = descricao;
 	}
 
 	public Integer getIdTurma() {
-		return idTurma;
+		return id;
 	}
 
 	public void setIdTurma(Integer idTurma) {
-		this.idTurma = idTurma;
+		this.id = idTurma;
 	}
 
 	public String getDescricao() {
@@ -81,12 +81,10 @@ public class Turma implements Serializable{
 	public void setAlunos(List<Aluno> alunos) {
 		this.alunos = alunos;
 	}
-	
-		
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(descricao);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -98,8 +96,12 @@ public class Turma implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Turma other = (Turma) obj;
-		return Objects.equals(descricao, other.descricao);
+		return Objects.equals(id, other.id);
 	}
+	
+		
+	
+	
 
 	
 	
