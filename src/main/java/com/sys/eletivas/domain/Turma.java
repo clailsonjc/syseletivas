@@ -36,9 +36,7 @@ public class Turma implements Serializable{
 	)
 	private List<Aluno> alunos = new ArrayList<>();
 	
-	
-	
-	
+		
 	
 	public Turma() {
 	}
@@ -49,11 +47,11 @@ public class Turma implements Serializable{
 		this.descricao = descricao;
 	}
 
-	public Integer getIdTurma() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setIdTurma(Integer idTurma) {
+	public void setId(Integer idTurma) {
 		this.id = idTurma;
 	}
 

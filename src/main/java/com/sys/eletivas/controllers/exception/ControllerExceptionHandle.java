@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import com.sys.eletivas.services.exceptions.MyDataIntegrityException;
 import com.sys.eletivas.services.exceptions.MyObjectNotFoundException;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,8 +18,13 @@ public class ControllerExceptionHandle {
 		StandardError err = new StandardError(HttpStatus.NOT_FOUND.value(), e.getMessage(), System.currentTimeMillis());
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);
 	}
-	
-	
+		
+	//ex
+	@ExceptionHandler(MyDataIntegrityException.class)
+	public ResponseEntity<StandardError> objectNotFound(MyDataIntegrityException e,HttpServletRequest request){
+		StandardError err = new StandardError(HttpStatus.BAD_REQUEST.value(), e.getMessage(), System.currentTimeMillis());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
+	}
 	
 	
 

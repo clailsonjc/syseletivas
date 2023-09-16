@@ -21,5 +21,10 @@ public class HorarioService {
 		return obj.orElseThrow(() -> new MyObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Horario.class.getName()));
 	}
+	
+	
+	
+	
+	
 
 }//
