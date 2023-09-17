@@ -4,13 +4,19 @@ import java.io.Serializable;
 
 import com.sys.eletivas.domain.Aluno;
 
+import jakarta.validation.constraints.NotBlank;
+
+
 public class AlunoDTO implements Serializable{	
 	private static final long serialVersionUID = 1L;
 	
 	
 	private Integer id;	
-	private Integer matrícula;	
-	private String nome;	
+	private Integer matrícula;
+	
+	@NotBlank(message="O nome não pode ser nulo")
+	private String nome;
+	
 	private Integer sexo;	
 	private String senha;
 	
@@ -19,11 +25,11 @@ public class AlunoDTO implements Serializable{
 	}
 	
 	public AlunoDTO(Aluno obj) {
-		id = obj.getId();
-		matrícula = obj.getMatrícula();
-		nome = obj.getNome();
-		sexo = obj.getSexo();
-		senha = obj.getSenha();
+		this.id = obj.getId();
+		this.matrícula = obj.getMatrícula();
+		this.nome = obj.getNome();
+		this.sexo = obj.getSexo();
+		this.senha = obj.getSenha();
 		
 	}
 
